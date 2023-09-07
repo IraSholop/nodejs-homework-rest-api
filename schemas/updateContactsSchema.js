@@ -4,6 +4,7 @@ const Joi = require('joi');
    name: Joi.string().required(),
    email: Joi.string().required(),
    phone: Joi.string().required(),
+   favorite: Joi.boolean(),
  });
 
  module.exports = updateContactSchema;

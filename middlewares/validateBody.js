@@ -6,6 +6,11 @@ const { object } = require('joi');
      let message = '';
      const { error } = schema.validate(req.body);
      console.log(Object.keys(req.body).length);
+
+     if (Object.keys(req.body).length === 0 && req.method === 'PATCH') {
+      message = 'missing field favorite';
+      next(HttpError(400, message));
+    }
      if (Object.keys(req.body).length === 0) {
        message = 'missing fields';
        next(HttpError(400, message));
